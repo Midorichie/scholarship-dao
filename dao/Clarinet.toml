@@ -1,0 +1,6 @@
+[project]
+name = "scholarship-dao"
+
+[[contracts]]
+name = "scholarship-dao"
+path = "contracts/scholarship-dao.clar"
