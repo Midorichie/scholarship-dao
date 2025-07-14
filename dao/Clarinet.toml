@@ -1,6 +1,76 @@
 [project]
 name = "scholarship-dao"
-
-[[contracts]]
-name = "scholarship-dao"
+version = "2.0.0"
+description = "Enhanced Scholarship DAO with governance and security improvements"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+keywords = ["dao", "scholarship", "governance", "clarity", "stacks"]
+ 
+[contracts.scholarship-dao]
 path = "contracts/scholarship-dao.clar"
+clarity_version = 1
+epoch = "2.05"
+ 
+[contracts.governance]
+path = "contracts/governance.clar"
+clarity_version = 1
+epoch = "2.05"
+ 
+[repl]
+costs_version = 2
+parser_version = 2
+ 
+[repl.analysis]
+passes = ["check_checker"]
+ 
+[repl.analysis.check_checker]
+strict = true
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+ 
+# Network configurations
+[network]
+name = "testnet"
+node_rpc_address = "https://stacks-node-api.testnet.stacks.co"
+ 
+[network.deployment]
+generate_missing_constructors = true
+serialize_constructors = true
+ 
+# Test configuration
+[test]
+timeout = 30000
+ 
+# Development settings
+[dev]
+stacks_node_rpc_address = "http://localhost:20443"
+bitcoin_node_rpc_address = "http://localhost:18443"
+bitcoin_node_rpc_username = "btc"
+bitcoin_node_rpc_password = "btc"
+ 
+# Accounts for testing
+[[repl.accounts]]
+name = "deployer"
+address = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
+balance = 100000000000000
+ 
+[[repl.accounts]]
+name = "wallet_1"
+address = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5"
+balance = 100000000000000
+ 
+[[repl.accounts]]
+name = "wallet_2"
+address = "ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG"
+balance = 100000000000000
+ 
+[[repl.accounts]]
+name = "wallet_3"
+address = "ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC"
+balance = 100000000000000
+ 
+[[repl.accounts]]
+name = "wallet_4"
+address = "ST2NEB84ASENDXKYGJPQW86YXQCEFEX2ZQPG87ND"
+balance = 100000000000000
